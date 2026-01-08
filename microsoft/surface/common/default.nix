@@ -19,7 +19,7 @@ let
     if kernelVersion == "longterm" then
       "6.12.19"
     else if kernelVersion == "stable" then
-      "6.18.2"
+      "6.18.3"
     else
       abort "Invalid kernel version: ${kernelVersion}";
 
@@ -28,7 +28,7 @@ let
     if kernelVersion == "longterm" then
       "sha256-1zvwV77ARDSxadG2FkGTb30Ml865I6KB8y413U3MZTE="
     else if kernelVersion == "stable" then
-      "sha256-VYxrurdJSSs0+Zgn/oB7ADmnRGk8IdOn4Ds6SO2quWo="
+      "sha256-eoh5FnuJxLrgd9bznE8hMHafBdva0qrZFK2rmvt9f5o="
     else
       abort "Invalid kernel version: ${kernelVersion}";
 
@@ -36,8 +36,8 @@ let
   linux-surface = pkgs.fetchFromGitHub {
     owner = "linux-surface";
     repo = "linux-surface";
-    rev = "0c56ab75c06ab7bae1a8db5049c427d31cbd35fe";
-    hash = "sha256-1dLrBAcBCD8CEJIsS12lwaqxDEeauw/hKDaZQPCpzj4=";
+    rev = "9148d5c6b05cb50f291e1f2bb5c68c2ed687980b";
+    hash = "sha256-JgqxwQ1AmHXHyQagcSqWn/A9aiaLb0dikUl6Y+ARO6w=";
   };
 
   # Fetch and build the kernel
@@ -46,7 +46,6 @@ let
     surfacePatches
     ;
 
-  # Kernel 6.18 can use the same base patches as 6.17
   kernelPatches = surfacePatches {
     version = srcVersion;
     patchFn = ./kernel/${versions.majorMinor srcVersion}/patches.nix;
