@@ -19,7 +19,7 @@ let
     if kernelVersion == "longterm" then
       "6.12.19"
     else if kernelVersion == "stable" then
-      "6.18.3"
+      "6.18.4"
     else
       abort "Invalid kernel version: ${kernelVersion}";
 
@@ -28,7 +28,7 @@ let
     if kernelVersion == "longterm" then
       "sha256-1zvwV77ARDSxadG2FkGTb30Ml865I6KB8y413U3MZTE="
     else if kernelVersion == "stable" then
-      "sha256-eoh5FnuJxLrgd9bznE8hMHafBdva0qrZFK2rmvt9f5o="
+      "sha256-+FATnKX3nBv2u4sy+S4hKq3Kl72u+Kg6fPSsTWpSX6s="
     else
       abort "Invalid kernel version: ${kernelVersion}";
 
@@ -36,8 +36,8 @@ let
   linux-surface = pkgs.fetchFromGitHub {
     owner = "linux-surface";
     repo = "linux-surface";
-    rev = "9148d5c6b05cb50f291e1f2bb5c68c2ed687980b";
-    hash = "sha256-JgqxwQ1AmHXHyQagcSqWn/A9aiaLb0dikUl6Y+ARO6w=";
+    rev = "7d273267d9af19b3c6b2fdc727fad5a0f68b1a3d";
+    hash = "sha256-CPY/Pxt/LTGKyQxG0CZasbvoFVbd8UbXjnBFMnFVm9k=";
   };
 
   # Fetch and build the kernel
